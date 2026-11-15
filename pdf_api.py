@@ -13,7 +13,7 @@ pdf_cache = {}
 CACHE_TTL = 1800
 
 def get_cached_pdf(url):
-    url_hash = hashlib.md5(url.encode()).hexdigest()[:16]
+    url_hash = hashlib.md5(url.split('?')[0].encode()).hexdigest()[:16]
     if url_hash in pdf_cache:
         entry = pdf_cache[url_hash]
         if time.time() - entry['timestamp'] < CACHE_TTL:
