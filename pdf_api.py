@@ -76,7 +76,7 @@ def convert_to_png():
             if len(parts) > 1:
                 cmd.extend(['-l', parts[1]])
         cmd.extend([pdf_path, output_prefix])
-        subprocess.run(cmd, check=True, timeout=120)
+        subprocess.run(cmd, check=True, timeout=300)
         pngs = sorted([f for f in os.listdir(WORK_DIR) if f.startswith(job_id) and f.endswith('.png')], key=lambda x: int(''.join(c for c in x.rsplit('-',1)[-1] if c.isdigit()) or 0))
         if not pngs:
             return jsonify({'error': True, 'message': 'No PNGs generated'}), 500

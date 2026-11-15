@@ -13,4 +13,4 @@ COPY pdf_api.py .
 
 EXPOSE 8000
 
-CMD ["sh", "-c", "gunicorn --bind 0.0.0.0:${PORT:-8000} --workers 2 --threads 8 --worker-class gthread --timeout 180 pdf_api:app"]
+CMD ["sh", "-c", "gunicorn --bind 0.0.0.0:${PORT:-8000} --workers 2 --threads 8 --worker-class gthread --timeout 420 pdf_api:app"]
